@@ -31,7 +31,7 @@ public class Exercise
     public String toString()
     {
         int i = 0;
-        StringBuilder sb = new StringBuilder("");
+        StringBuilder sb = new StringBuilder(exerciseName + "\n");
         for(ExerciseSet exerciseSet : exerciseSetsList)
         {
             sb.append("Set" + i + ") Weight: " + exerciseSet.getWeight() + " Reps: " + exerciseSet.getReps() + "\n");

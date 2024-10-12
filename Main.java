@@ -9,5 +9,18 @@ public class Main
         ei.addWorkout();
 
         System.out.println(ei.toString());
+        ei.addExercise(0,"Barbell Bench");
+        ei.addExercise(0,"Upright Row");
+
+        ei.addExercise(1,"Barbell Squat");
+        ei.addExercise(1,"Dumbell Row");
+
+        System.out.println(ei.printExercises(0));
+        System.out.println(ei.printExercises(1));
+
+        ei.addSet(0,0,135,12);
+        ei.addSet(0,0,145,6);
+
+        System.out.println(ei.printSets(0,0));
     }
 }

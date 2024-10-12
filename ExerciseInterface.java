@@ -45,6 +45,22 @@ public class ExerciseInterface
         exercise.addSet(exerciseSet);
     }
 
+    public String printExercises(int workoutIndex)
+    {
+        System.out.println("Workout " + workoutIndex + "\n"); //temp
+        Workout workout = workoutList.get(workoutIndex);
+        return workout.toString();
+    }
+
+    public String printSets(int workoutIndex, int exerciseIndex)
+    {
+        Workout workout = workoutList.get(workoutIndex);
+        ArrayList<Exercise> exerciseList = workout.getExerciseList();
+        Exercise exercise = exerciseList.get(exerciseIndex);
+
+        return exercise.toString();
+    }
+
     @Override
     public String toString()
     {
