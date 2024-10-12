@@ -9,6 +9,7 @@ public class Main
         ei.addWorkout();
 
         System.out.println(ei.toString());
+        
         ei.addExercise(0,"Barbell Bench");
         ei.addExercise(0,"Upright Row");
 
