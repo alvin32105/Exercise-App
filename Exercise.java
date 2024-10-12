@@ -26,6 +26,21 @@ public class Exercise
     {
         exerciseSetsList.add(exerciseSet);
     }
+
+    @Override
+    public String toString()
+    {
+        int i = 0;
+        StringBuilder sb = new StringBuilder("");
+        for(ExerciseSet exerciseSet : exerciseSetsList)
+        {
+            sb.append("Set" + i + ") Weight: " + exerciseSet.getWeight() + " Reps: " + exerciseSet.getReps() + "\n");
+            i++;
+        }
+        sb.append("\n\n");
+        
+        return sb.toString();
+    }
     
     // public ExerciseSet getSet(int index)
     // {

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.lang.StringBuilder;
 
 public class ExerciseInterface
 {
@@ -7,6 +8,11 @@ public class ExerciseInterface
     public ExerciseInterface()
     {
         this.workoutList = new ArrayList<>();
+    }
+
+    public ArrayList<Workout> getWorkoutList()
+    {
+        return workoutList;
     }
 
     public void addWorkout()
@@ -37,6 +43,20 @@ public class ExerciseInterface
         Exercise exercise = exerciseList.get(exerciseIndex);
         ExerciseSet exerciseSet = new ExerciseSet(weight, reps);
         exercise.addSet(exerciseSet);
+    }
 
+    @Override
+    public String toString()
+    {
+        int i = 0;
+        StringBuilder sb = new StringBuilder("");
+        for(Workout workout : workoutList)
+        {
+            sb.append("" + i + ") Workout " + i + "\n");
+            i++;
+        }
+        sb.append("\n\n");
+
+        return sb.toString();
     }
 }

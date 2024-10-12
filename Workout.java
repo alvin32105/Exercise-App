@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import java.lang.StringBuilder;
 
 public class Workout 
 {
@@ -18,5 +18,20 @@ public class Workout
     public ArrayList<Exercise> getExerciseList()
     {
         return exerciseList;
+    }
+
+    @Override
+    public String toString()
+    {
+        int i = 0;
+        StringBuilder sb = new StringBuilder("");
+        for(Exercise exercise : exerciseList)
+        {
+            sb.append("" + i + ") " + exercise.getName() + "\n");
+            i++;
+        }
+        sb.append("\n\n");
+
+        return sb.toString();
     }
 }
