@@ -7,11 +7,10 @@ public class Exercise
     private int sets;
     private int reps;
     
-    public Exercise(String exerciseName, double pounds, int sets, int reps)
+    public Exercise(String exerciseName, double pounds, int reps)
     {
         this.exerciseName = exerciseName;
         this.pounds = pounds;
-        this.sets = sets;
         this.reps = reps;
     }
 
@@ -23,11 +22,6 @@ public class Exercise
     public double getWeight()
     {
         return pounds;
-    }
-
-    public int getSets()
-    {
-        return sets;
     }
 
     public int getReps()
