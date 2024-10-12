@@ -28,5 +28,13 @@ public class Main
         ei.addSet(0,0,145,6);
 
         System.out.println(ei.printSets(0,0));
+
+        ei.removeSets(0,0,0);
+
+        System.out.println(ei.printSets(0,0));
+
+        ei.editSets(0,0,0,120,5);
+
+        System.out.println(ei.printSets(0,0));
     }
 }

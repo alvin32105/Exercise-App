@@ -40,7 +40,7 @@ public class ExerciseInterface
         Exercise exercise = new Exercise(exerciseName);
         workout.addExercise(exercise);
     }
-    
+
     public void addSet(int workoutIndex, int exerciseIndex, int weight, int reps)
     {
         Workout workout = workoutList.get(workoutIndex);
@@ -51,12 +51,33 @@ public class ExerciseInterface
         exercise.addSet(exerciseSet);
     }
 
+    public void editSets(int workoutIndex, int exerciseIndex ,int setIndex, int newWeight, int newReps)
+    {
+        Workout workout = workoutList.get(workoutIndex);
+        ArrayList<Exercise> exerciseList = workout.getExerciseList();
+        Exercise exercise = exerciseList.get(exerciseIndex);
+        ArrayList<ExerciseSet> exerciseSetList = exercise.getSetList();
+        ExerciseSet exerciseSet = exerciseSetList.get(setIndex);
+        exerciseSet.setWeight(newWeight);
+        exerciseSet.setReps(newReps);
+    }
+
+    public void removeSets(int workoutIndex, int exerciseIndex ,int setIndex)
+    {
+        Workout workout = workoutList.get(workoutIndex);
+        ArrayList<Exercise> exerciseList = workout.getExerciseList();
+        Exercise exercise = exerciseList.get(exerciseIndex);
+        ArrayList<ExerciseSet> exerciseSetList = exercise.getSetList();
+        exerciseSetList.remove(setIndex);
+    }
+
     public String printExercises(int workoutIndex)
     {
         System.out.println("Workout " + workoutIndex + "\n"); //temp
         Workout workout = workoutList.get(workoutIndex);
         return workout.toString();
     }
+
 
     public String printSets(int workoutIndex, int exerciseIndex)
     {

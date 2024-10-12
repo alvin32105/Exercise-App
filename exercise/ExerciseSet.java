@@ -11,6 +11,16 @@ public class ExerciseSet
         this.reps = reps;
     }
 
+    public void setWeight(int newWeight)
+    {
+        weight = newWeight;
+    }
+
+    public void setReps(int newReps)
+    {
+        reps = newReps;
+    }
+
     public int getWeight()
     {
         return weight;
