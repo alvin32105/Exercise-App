@@ -1,31 +1,36 @@
-
+import java.lang.StringBuilder;
+import java.util.ArrayList;
 
 public class Exercise
 {
     private String exerciseName;
-    private double pounds;
-    private int sets;
-    private int reps;
-    
-    public Exercise(String exerciseName, double pounds, int reps)
+    private ArrayList<ExerciseSet> exerciseSetsList;
+
+    public Exercise(String exerciseName)
     {
         this.exerciseName = exerciseName;
-        this.pounds = pounds;
-        this.reps = reps;
+        this.exerciseSetsList = new ArrayList<>();
     }
 
-    public String getName()
+    public void addSet(int weight, int reps)
     {
-        return exerciseName;
+        ExerciseSet exerciseSet = new ExerciseSet(weight, reps);
+    }
+    
+    public ExerciseSet getSet(int index)
+    {
+        ExerciseSet result = exerciseSetsList.get(index);
+        return result;
     }
 
-    public double getWeight()
+    public String listSets()
     {
-        return pounds;
-    }
+        StringBuilder sb = new StringBuilder("");
+        for(ExerciseSet set : exerciseSetsList)
+        {
+            sb.append("weight: " + set.getWeight() + " reps: " + set.getReps() + "\n");
+        }
 
-    public int getReps()
-    {
-        return reps;
+        return sb.toString();
     }
 }
