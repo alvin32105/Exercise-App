@@ -27,6 +27,11 @@ public class ExerciseInterface
         workoutList.add(workout);
     }
 
+    public void removeWorkout(int workoutIndex)
+    {
+        workoutList.remove(workoutIndex);
+    }
+
     public void addExercise(int workoutIndex, String exerciseName)
     {
         Workout workout = workoutList.get(workoutIndex);
@@ -41,6 +46,15 @@ public class ExerciseInterface
         workout.addExercise(exercise);
     }
 
+    public void removeExercise(int workoutIndex, int exerciseIndex)
+    {
+        Workout workout = workoutList.get(workoutIndex);
+
+        ArrayList<Exercise> exerciseList = workout.getExerciseList();
+        exerciseList.remove(exerciseIndex);
+
+    }
+
     public void addSet(int workoutIndex, int exerciseIndex, int weight, int reps)
     {
         Workout workout = workoutList.get(workoutIndex);
@@ -48,16 +62,20 @@ public class ExerciseInterface
 
         Exercise exercise = exerciseList.get(exerciseIndex);
         ExerciseSet exerciseSet = new ExerciseSet(weight, reps);
+
         exercise.addSet(exerciseSet);
     }
 
     public void editSets(int workoutIndex, int exerciseIndex ,int setIndex, int newWeight, int newReps)
     {
         Workout workout = workoutList.get(workoutIndex);
+
         ArrayList<Exercise> exerciseList = workout.getExerciseList();
         Exercise exercise = exerciseList.get(exerciseIndex);
+
         ArrayList<ExerciseSet> exerciseSetList = exercise.getSetList();
         ExerciseSet exerciseSet = exerciseSetList.get(setIndex);
+
         exerciseSet.setWeight(newWeight);
         exerciseSet.setReps(newReps);
     }
@@ -65,9 +83,12 @@ public class ExerciseInterface
     public void removeSets(int workoutIndex, int exerciseIndex ,int setIndex)
     {
         Workout workout = workoutList.get(workoutIndex);
+
         ArrayList<Exercise> exerciseList = workout.getExerciseList();
         Exercise exercise = exerciseList.get(exerciseIndex);
+
         ArrayList<ExerciseSet> exerciseSetList = exercise.getSetList();
+
         exerciseSetList.remove(setIndex);
     }
 

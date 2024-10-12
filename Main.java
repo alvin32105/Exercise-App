@@ -36,5 +36,9 @@ public class Main
         ei.editSets(0,0,0,120,5);
 
         System.out.println(ei.printSets(0,0));
+
+        ei.removeExercise(1,0);
+
+        System.out.println(ei.printExercises(1));
     }
 }
