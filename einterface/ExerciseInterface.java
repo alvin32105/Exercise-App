@@ -92,6 +92,19 @@ public class ExerciseInterface
         exerciseSetList.remove(setIndex);
     }
 
+    public void changeExerciseName(int workoutIndex, int exerciseIndex, String name)
+    {
+        Workout workout = workoutList.get(workoutIndex);
+        ArrayList<Exercise> exerciseList = workout.getExerciseList();
+        Exercise exercise = exerciseList.get(exerciseIndex);
+        if(name.equals(exercise.getName()))
+        {
+            throw new IllegalArgumentException("duplicate exercise");
+        }
+
+        exercise.setName(name);
+    }
+
     public String printExercises(int workoutIndex)
     {
         System.out.println("Workout " + workoutIndex + "\n"); //temp

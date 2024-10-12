@@ -19,6 +19,11 @@ public class Exercise
         return exerciseName;
     }
 
+    public void setName(String exerciseName)
+    {
+        this.exerciseName = exerciseName;
+    }
+
     public ArrayList<ExerciseSet> getSetList()
     {
         return exerciseSetsList;
