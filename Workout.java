@@ -10,9 +10,13 @@ public class Workout
         this.exerciseList = new ArrayList<>();
     }
 
-    public void addExercise(String exerciseName)
+    public void addExercise(Exercise exercise)
     {
-        Exercise exercise = new Exercise(exerciseName);
         exerciseList.add(exercise);
+    }
+    
+    public ArrayList<Exercise> getExerciseList()
+    {
+        return exerciseList;
     }
 }

@@ -11,26 +11,36 @@ public class Exercise
         this.exerciseName = exerciseName;
         this.exerciseSetsList = new ArrayList<>();
     }
-
-    public void addSet(int weight, int reps)
+    
+    public String getName()
     {
-        ExerciseSet exerciseSet = new ExerciseSet(weight, reps);
+        return exerciseName;
+    }
+
+    public ArrayList<ExerciseSet> getSetList()
+    {
+        return exerciseSetsList;
+    }
+
+    public void addSet(ExerciseSet exerciseSet)
+    {
+        exerciseSetsList.add(exerciseSet);
     }
     
-    public ExerciseSet getSet(int index)
-    {
-        ExerciseSet result = exerciseSetsList.get(index);
-        return result;
-    }
+    // public ExerciseSet getSet(int index)
+    // {
+    //     ExerciseSet result = exerciseSetsList.get(index);
+    //     return result;
+    // }
 
-    public String listSets()
-    {
-        StringBuilder sb = new StringBuilder("");
-        for(ExerciseSet set : exerciseSetsList)
-        {
-            sb.append("weight: " + set.getWeight() + " reps: " + set.getReps() + "\n");
-        }
+    // public String listSets()
+    // {
+    //     StringBuilder sb = new StringBuilder("");
+    //     for(ExerciseSet set : exerciseSetsList)
+    //     {
+    //         sb.append("weight: " + set.getWeight() + " reps: " + set.getReps() + "\n");
+    //     }
 
-        return sb.toString();
-    }
+    //     return sb.toString();
+    // }
 }
