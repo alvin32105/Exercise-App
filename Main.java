@@ -1,3 +1,8 @@
+import einterface.ExerciseInterface;
+import exercise.Exercise;
+import exercise.ExerciseSet;
+import exercise.Workout;
+
 import java.util.Scanner;
 
 public class Main

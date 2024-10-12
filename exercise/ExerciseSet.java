@@ -1,3 +1,5 @@
+package exercise;
+
 public class ExerciseSet
 {
     private int weight;

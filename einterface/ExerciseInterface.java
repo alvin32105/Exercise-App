@@ -1,3 +1,9 @@
+package einterface;
+
+import exercise.Exercise;
+import exercise.ExerciseSet;
+import exercise.Workout;
+
 import java.util.ArrayList;
 import java.lang.StringBuilder;
 

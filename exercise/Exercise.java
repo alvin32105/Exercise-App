@@ -1,3 +1,5 @@
+package exercise;
+
 import java.lang.StringBuilder;
 import java.util.ArrayList;
 
