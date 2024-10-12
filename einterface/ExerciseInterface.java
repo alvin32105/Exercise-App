@@ -4,6 +4,7 @@ import exercise.Exercise;
 import exercise.ExerciseSet;
 import exercise.Workout;
 
+import java.util.Calendar;
 import java.util.ArrayList;
 import java.lang.StringBuilder;
 
@@ -21,9 +22,9 @@ public class ExerciseInterface
         return workoutList;
     }
 
-    public void addWorkout()
+    public void addWorkout(int month, int date, int year)
     {
-        Workout workout = new Workout();
+        Workout workout = new Workout(month, date, year);
         workoutList.add(workout);
     }
 
@@ -130,6 +131,7 @@ public class ExerciseInterface
         for(Workout workout : workoutList)
         {
             sb.append("" + i + ") Workout " + i + "\n");
+            sb.append(workout.displayDate());
             i++;
         }
         sb.append("\n\n");
