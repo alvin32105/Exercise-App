@@ -11,6 +11,7 @@ import java.lang.StringBuilder;
 public class ExerciseInterface
 {
     private ArrayList<Workout> workoutList;
+    
 
     public ExerciseInterface()
     {
@@ -22,10 +23,21 @@ public class ExerciseInterface
         return workoutList;
     }
 
-    public void addWorkout(int month, int date, int year)
+    public void addWorkout(int year, int month, int day)
     {
-        Workout workout = new Workout(month, date, year);
+        Calendar cal = Calendar.getInstance();
+        cal.set(year, month, day);
+        if(year < 0) throw new IllegalArgumentException("Invalid Year");
+        if(month < 1 || month > 12) throw new IllegalArgumentException("Invalid Month");
+        if(day < 1 || day > cal.getActualMaximum(Calendar.DAY_OF_MONTH)) throw new IllegalArgumentException("Invalid Day");
+        Workout workout = new Workout(year, month, day);
+        for(Workout w : workoutList)
+        {
+            if(w.getDay() == day && w.getMonth() == month && w.getYear() == year) throw new IllegalArgumentException("Workouts on the same day");
+        }
+
         workoutList.add(workout);
+
     }
 
     public void removeWorkout(int workoutIndex)
@@ -98,6 +110,7 @@ public class ExerciseInterface
         Workout workout = workoutList.get(workoutIndex);
         ArrayList<Exercise> exerciseList = workout.getExerciseList();
         Exercise exercise = exerciseList.get(exerciseIndex);
+
         if(name.equals(exercise.getName()))
         {
             throw new IllegalArgumentException("duplicate exercise");
@@ -105,7 +118,6 @@ public class ExerciseInterface
 
         exercise.setName(name);
     }
-
     public String printExercises(int workoutIndex)
     {
         System.out.println("Workout " + workoutIndex + "\n"); //temp
@@ -131,7 +143,7 @@ public class ExerciseInterface
         for(Workout workout : workoutList)
         {
             sb.append("" + i + ") Workout " + i + "\n");
-            sb.append(workout.displayDate());
+            sb.append("" + workout.getMonth() + "/" +workout.getDay() + "/" + workout.getYear() + "\n");
             i++;
         }
         sb.append("\n\n");

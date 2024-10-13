@@ -11,7 +11,8 @@ public class Main
     public static void main(String[] args)
     {
         ExerciseInterface ei = new ExerciseInterface();
-        ei.addWorkout(12,31,2024);
+        ei.addWorkout(1999,12,31);
+        ei.addWorkout(1999,11,31);
 
         System.out.println(ei.toString());
     }

@@ -8,24 +8,32 @@ import java.util.Calendar;
 public class Workout 
 {
     private ArrayList<Exercise> exerciseList;
-    private Calendar cal = Calendar.getInstance();
-    private String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    private int day;
+    private int month;
+    private int year;
 
-    public Workout(int month, int date, int year)
+    public Workout(int year, int month, int day)
     {
         this.exerciseList = new ArrayList<>();
-        cal.set(year, month-1, date);
-        Calendar currentDay = Calendar.getInstance();
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        
     }
 
-    public String displayDate() 
+    public int getYear()
     {
-        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-        String dayName = daysOfWeek[dayOfWeek - 1]; 
-        int month = cal.get(Calendar.MONTH) + 1;
-        int year = cal.get(Calendar.YEAR);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-        return "Workout Date: Month " + month + "/" + day + "/" + year + " " + dayName;
+        return year;
+    }
+
+    public int getMonth()
+    {
+        return month;
+    }
+
+    public int getDay()
+    {
+        return day;
     }
 
     public void addExercise(Exercise exercise)
