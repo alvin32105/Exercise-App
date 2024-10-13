@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.lang.StringBuilder;
-import java.util.Calendar;
+import java.time.YearMonth;
 
 public class ExerciseInterface
 {
@@ -18,10 +18,11 @@ public class ExerciseInterface
 
     public void addWorkout(int year, int month, int day)
     {
-        Calendar cal = Calendar.getInstance();
+        YearMonth yearMonthObject = YearMonth.of(year,month);
+        int daysInMonth = yearMonthObject.lengthOfMonth();
         if(year < 0) throw new IllegalArgumentException("Invalid year");
         if(month < 1 || month > 12) throw new IllegalArgumentException("Invalid month");
-        if(day < 1 || day > cal.getActualMaximum(Calendar.DAY_OF_MONTH)) throw new IllegalArgumentException("Invalid day");
+        if(day < 1 || day > daysInMonth) throw new IllegalArgumentException("Invalid day");
 
         Workout workout = new Workout(year, month, day);
         for(Workout w : workoutList)
