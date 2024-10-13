@@ -4,7 +4,7 @@ import exercise.Exercise;
 import exercise.ExerciseSet;
 import exercise.Workout;
 
-import java.util.Calendar;
+import java.time.YearMonth;
 import java.util.ArrayList;
 import java.lang.StringBuilder;
 
@@ -25,11 +25,12 @@ public class ExerciseInterface
 
     public void addWorkout(int year, int month, int day)
     {
-        Calendar cal = Calendar.getInstance();
-        cal.set(year, month, day);
+        YearMonth object = YearMonth.of(year, month);
+        int daysOfMonth = object.lengthOfMonth();
         if(year < 0) throw new IllegalArgumentException("Invalid Year");
         if(month < 1 || month > 12) throw new IllegalArgumentException("Invalid Month");
-        if(day < 1 || day > cal.getActualMaximum(Calendar.DAY_OF_MONTH)) throw new IllegalArgumentException("Invalid Day");
+        if(day < 1 || day > daysOfMonth) throw new IllegalArgumentException("Invalid Day");
+
         Workout workout = new Workout(year, month, day);
         for(Workout w : workoutList)
         {
