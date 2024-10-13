@@ -1,9 +1,6 @@
 package exercise;
 
 import java.util.ArrayList;
-import java.lang.StringBuilder;
-import java.util.Calendar.Builder;
-import java.util.Calendar;
 
 public class Workout 
 {

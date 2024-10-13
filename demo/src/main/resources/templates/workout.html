@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MY WORKOUT BUDDY</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1>Workout Manager</h1>
+
+    <h2>Add a Workout</h2>
+    <form action="#" th:action="@{/workouts}" method="post">
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" required>
+        <br>
+        <label for="month">Month:</label>
+        <input type="number" id="month" name="month" required min="1" max="12">
+        <br>
+        <label for="day">Day:</label>
+        <input type="number" id="day" name="day" required min="1" max="31">
+        <br>
+        <button type="submit">Add Workout</button>
+    </form>
+
+    <h2>Add Exercise to Workout</h2>
+    <form action="#" th:action="@{/workouts/{workoutIndex}/exercises(workoutIndex=${workoutIndex})}" method="post">
+        <label for="workoutIndex">Workout Index:</label>
+        <input type="number" id="workoutIndex" name="workoutIndex" required>
+        <br>
+        <label for="exerciseName">Exercise Name:</label>
+        <input type="text" id="exerciseName" name="exerciseName" required>
+        <br>
+        <button type="submit">Add Exercise</button>
+    </form>
+
+    <h2>Remove Workout</h2>
+    <form action="#" th:action="@{/workouts/{index}(index=${index})}" method="post">
+        <label for="index">Workout Index:</label>
+        <input type="number" id="index" name="index" required>
+        <br>
+        <button type="submit">Remove Workout</button>
+    </form>
+
+    <h2>Remove Exercise from Workout</h2>
+    <form action="#" th:action="@{/workouts/{workoutIndex}/exercises/{exerciseIndex}(workoutIndex=${workoutIndex}, exerciseIndex=${exerciseIndex})}" method="post">
+        <label for="workoutIndex">Workout Index:</label>
+        <input type="number" id="workoutIndex" name="workoutIndex" required>
+        <br>
+        <label for="exerciseIndex">Exercise Index:</label>
+        <input type="number" id="exerciseIndex" name="exerciseIndex" required>
+        <br>
+        <button type="submit">Remove Exercise</button>
+    </form>
+
+    <h2>Current Workouts</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="workout, iterStat : ${workouts}">
+                <td th:text="${iterStat.index}"></td>
+                <td th:text="${#dates.format(workout.date, 'yyyy-MM-dd')}"></td>
+                <td>
+                    <form th:action="@{/workouts/{index}(index=${iterStat.index})}" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
